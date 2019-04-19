@@ -7,6 +7,7 @@ import User from './Components/User';
 import Article from './Components/Article';
 import AddArticle from './Components/AddArticle';
 import './App.css';
+import Header from './Components/Header';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
       <div className="App">
       <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"></link>
         <Router>
+          <Route path={`/`} component={Header}></Route>
           <Route exact path={`/`} component={Home}></Route>
           <Route exact path={`/login`} component={Login}></Route>
           <Route exact path={`/register`} component={Register}></Route>

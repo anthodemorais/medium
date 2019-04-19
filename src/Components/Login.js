@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Redirect} from 'react-router-dom';
 import api from '../Services/api';
-import Header from '../Components/Header';
 
 export default class Login extends Component {
 
@@ -40,18 +39,15 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <Header/>
-                <div>
-                    <h1>Login</h1>
-                    <form
-                        method="POST"
-                        onSubmit={(e) => {this.submit(e)}}
-                    >
-                        <input type="email" placeholder="email" onChange={(e) => {this.emailChange(e)}} required />
-                        <input type="password" placeholder="password" onChange={(e) => {this.passwordChange(e)}} required />
-                        <button type="submit">Login</button>
-                    </form>
-                </div>                
+                <h1>Login</h1>
+                <form
+                    method="POST"
+                    onSubmit={(e) => {this.submit(e)}}
+                >
+                    <input type="email" placeholder="email" onChange={(e) => {this.emailChange(e)}} required />
+                    <input type="password" placeholder="password" onChange={(e) => {this.passwordChange(e)}} required />
+                    <button type="submit">Login</button>
+                </form>
             </div>
         )
     }

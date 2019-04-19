@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Redirect} from 'react-router-dom';
 import api from '../Services/api';
-import Header from '../Components/Header';
 
 export default class AddArticle extends Component {
 
@@ -50,16 +49,13 @@ export default class AddArticle extends Component {
     render() {
         return (
             <div>
-                <Header/>
-                <div>
-                   <h2>Ajouter un article</h2>
-                    <form onSubmit={(e) => {this.submit(e)}} >
-                        <input type="text" placeholder="title" onChange={(e) => {this.changeTitle(e)}} />
-                        <textarea placeholder="content.." onChange={(e) => {this.changeContent(e)}} ></textarea>
-                        <input type="text" placeholder="category" onChange={(e) => {this.changeCategory(e)}} />
-                        <button>Publier</button>
-                    </form> 
-                </div>
+                <h2>Ajouter un article</h2>
+                <form onSubmit={(e) => {this.submit(e)}} >
+                    <input type="text" placeholder="title" onChange={(e) => {this.changeTitle(e)}} />
+                    <textarea placeholder="content.." onChange={(e) => {this.changeContent(e)}} ></textarea>
+                    <input type="text" placeholder="category" onChange={(e) => {this.changeCategory(e)}} />
+                    <button>Publier</button>
+                </form> 
             </div>
         )
     }

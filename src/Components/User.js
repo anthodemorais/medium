@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Redirect} from 'react-router-dom';
 import api from '../Services/api';
 import logo from '../logo.svg';
-import Header from './Header';
 import ChangePassword from './ChangePassword';
 
 export default class User extends Component {
@@ -67,7 +66,6 @@ export default class User extends Component {
     render() {
         return (
             <div>
-                <Header/>
                 <div>
                     <img src={logo} alt={this.state.firstname + " " + this.state.lastname}/>
                     <h2>{this.state.firstname + " " + this.state.lastname}</h2>

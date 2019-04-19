@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import api from '../Services/api';
-import Header from '../Components/Header';
 
 export default class Article extends Component {
 
@@ -49,17 +48,14 @@ export default class Article extends Component {
     render() {
         return (
             <div>
-                <Header/>
-                <div>
-                    <h2>{this.state.title}</h2>
-                    <span>By {this.state.author}</span>
-                    <p>{this.state.content}</p>
-                    <span>{"Category " + this.state.category}</span>
-                    <br/>
-                    <span>{"Created at " + this.state.created_at}</span>
-                    <br/>
-                    <span>{"Updated at " + this.state.updated_at}</span>
-                </div>
+                <h2>{this.state.title}</h2>
+                <span>By {this.state.author}</span>
+                <p>{this.state.content}</p>
+                <span>{"Category " + this.state.category}</span>
+                <br/>
+                <span>{"Created at " + this.state.created_at}</span>
+                <br/>
+                <span>{"Updated at " + this.state.updated_at}</span>
             </div>
         )
     }

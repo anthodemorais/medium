@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import api from '../Services/api';
 import ArticlePreview from './ArticlePreview';
-import Header from '../Components/Header';
 
 export default class Home extends Component {
 
@@ -39,12 +38,9 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div>
-                <Header/>
-                <div className="articles">
-                    <h1>Derniers Articles</h1>
-                    {this.displayArticles()}
-                </div>
+            <div className="articles">
+                <h1>Derniers Articles</h1>
+                {this.displayArticles()}
             </div>
         );
     }
