@@ -1,4 +1,4 @@
-export default {
+let api = {
     getArticles: () => {
         return new Promise((resolve, reject) => {
             fetch('http://blog.etherial.fr/articles', {
@@ -36,7 +36,7 @@ export default {
                             fetch('http://blog.etherial.fr/articles', {
                                 method: 'POST',
                                 headers: {  'Content-Type': 'application/json',
-                                            "Authorization": `Bearer ${localStorage.getItem("token")}`
+                                            "Authorization": `Bearer ${sessionStorage.getItem("token")}`
                                 },
                                 body: JSON.stringify({ 
                                     title: title,
@@ -65,6 +65,7 @@ export default {
                 })
             }).then((results) => {
                 results.json().then((json) => {
+                    api.isLogged = true
                     resolve(json.data.token);
                 });
             });
@@ -96,7 +97,7 @@ export default {
             fetch('http://blog.etherial.fr/users/me', {
                 method: 'GET',
                 headers: {
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                    "Authorization": `Bearer ${sessionStorage.getItem("token")}`
                 }
             }).then((results) => {
                 results.json().then((json) => {
@@ -112,7 +113,7 @@ export default {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                    "Authorization": `Bearer ${sessionStorage.getItem("token")}`
                 },
                 body: JSON.stringify({
                     firstname: firstname,
@@ -133,7 +134,7 @@ export default {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                    "Authorization": `Bearer ${sessionStorage.getItem("token")}`
                 },
                 body: JSON.stringify({
                     password_old: old,
@@ -146,5 +147,9 @@ export default {
                 });
             });
         })
-    }
+    },
+
+    isLogged: false
 }
+
+export default api

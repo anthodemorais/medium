@@ -45,6 +45,11 @@ header ul
   display: flex;
 }
 
+ul div
+{
+  display: flex;
+}
+
 li
 {
   display: flex;

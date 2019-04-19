@@ -28,7 +28,7 @@ export default class Register extends Component {
             if (result.status >= 200 && result.status <= 300)
             {
                 api.getToken(email, password).then((token) => {
-                    localStorage.setItem("token", token)
+                    sessionStorage.setItem("token", token)
                     return (<Redirect to="/users/me"/>)
                 })
             }

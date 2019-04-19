@@ -19,7 +19,7 @@ export default class Login extends Component {
         var password = this.state.password;
 
         api.getToken(email, password).then((token) => {
-            localStorage.setItem("token", token)
+            sessionStorage.setItem("token", token)
             return (<Redirect to="/users/me"/>)
         });
     }
