@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import api from '../Services/api';
 
 export default class ChangePassword extends Component {
@@ -9,7 +9,8 @@ export default class ChangePassword extends Component {
         this.state = {
             old: "",
             newPwd: "",
-            verif: ""
+            verif: "",
+            redirect: false
         }
     }
 
@@ -39,11 +40,18 @@ export default class ChangePassword extends Component {
         var verif = this.state.verif;
 
         api.updateUser(old, newPwd, verif).then((result) => {
-            return (<Redirect to="/users/me"/>)
+            this.setState({
+                redirect: true
+            })
         })
     }
 
     render() {
+
+        if (this.state.redirect === true) {
+            return <Redirect to='/users/me' />
+        }
+
         return (
             <form onSubmit={(e) => {this.submit(e)}}>
                 <input type="password" placeholder="password" onChange={(e) => {this.passwordChange(e)}} required />

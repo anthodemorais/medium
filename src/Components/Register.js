@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import api from '../Services/api';
 
 export default class Register extends Component {
@@ -11,7 +11,8 @@ export default class Register extends Component {
             lastname: "",
             email: "",
             password: "",
-            password_verif: ""
+            password_verif: "",
+            redirect: false
         }
     }
 
@@ -29,7 +30,9 @@ export default class Register extends Component {
             {
                 api.getToken(email, password).then((token) => {
                     sessionStorage.setItem("token", token)
-                    return (<Redirect to="/users/me"/>)
+                    this.setState({
+                        redirect: true
+                    })
                 })
             }
         })
@@ -66,6 +69,11 @@ export default class Register extends Component {
     }
 
     render() {
+
+        if (this.state.redirect === true) {
+            return <Redirect to='/users/me' />
+        }
+
         return (
             <div>
                 <h1>Register</h1>

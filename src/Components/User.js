@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import api from '../Services/api';
 import logo from '../logo.svg';
 import ChangePassword from './ChangePassword';
@@ -13,7 +13,8 @@ export default class User extends Component {
             picture: "",
             firstname: "",
             lastname: "",
-            birthdate: ""
+            birthdate: "",
+            redirect: false
         }
 
         api.getUserInfos().then((data) => {
@@ -59,11 +60,18 @@ export default class User extends Component {
         var birthdate = this.state.birthdate;
 
         api.updateUser(firstname, lastname, birthdate).then((result) => {
-            return (<Redirect to="/users/me"/>)
+            this.setState({
+                redirect: true
+            })
         })
     }
 
     render() {
+
+        if (this.state.redirect === true) {
+            return <Redirect to='/users/me' />
+        }
+
         return (
             <div>
                 <div>

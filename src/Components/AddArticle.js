@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import api from '../Services/api';
 
 export default class AddArticle extends Component {
@@ -10,7 +10,8 @@ export default class AddArticle extends Component {
         this.state = {
             title: "",
             content: "",
-            category: ""
+            category: "",
+            redirect: false
         }
     }
 
@@ -42,11 +43,18 @@ export default class AddArticle extends Component {
         console.log(category)
         
         api.addArticle(title, content, category).then((result) => {
-            return (<Redirect to="/"/>)
+            this.setState({
+                redirect: true
+            })
         })
     }
 
     render() {
+
+        if (this.state.redirect === true) {
+            return <Redirect to='/' />
+        }
+
         return (
             <div>
                 <h2>Ajouter un article</h2>
