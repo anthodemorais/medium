@@ -8,6 +8,11 @@ import Article from './Components/Article';
 import AddArticle from './Components/AddArticle';
 import './App.css';
 import Header from './Components/Header';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSignOutAlt)
 
 class App extends Component {
   render() {

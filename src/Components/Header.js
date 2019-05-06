@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import api from '../Services/api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class Header extends Component {
 
@@ -24,11 +25,17 @@ export default class Header extends Component {
         }
         else {
             return (
-                <li>
-                    <NavLink to={`/users/me`}>
-                        Profile
-                    </NavLink>
-                </li>
+                <div>
+                    <li>
+                        <NavLink to={`/users/me`}>
+                            Profile
+                        </NavLink>
+                    </li>
+                    <li>
+                        <FontAwesomeIcon icon="sign-out-alt" onClick={() => {sessionStorage.clear()}} />
+                    </li>
+                </div>
+                
             )
         }
     }

@@ -21,7 +21,7 @@ export default class Home extends Component {
 
         let articles = []
 
-        for (var i in this.state.articles) {
+        for (var i in this.state.articles.reverse()) {
              (
                 articles.push(<ArticlePreview
                     title={this.state.articles[i].title}

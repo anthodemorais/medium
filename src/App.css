@@ -132,7 +132,7 @@ textarea:focus
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .article
@@ -152,4 +152,10 @@ textarea:focus
 button:hover
 {
   box-shadow: 0px 0px 15px 0px black;
+}
+
+span
+{
+  display: block;
+  color: white;
 }
