@@ -20,7 +20,6 @@ export default class Header extends Component {
                         </NavLink>
                     </li>
                 </div>
-                
             )
         }
         else {
@@ -35,7 +34,6 @@ export default class Header extends Component {
                         <FontAwesomeIcon icon="sign-out-alt" onClick={() => {sessionStorage.clear()}} />
                     </li>
                 </div>
-                
             )
         }
     }

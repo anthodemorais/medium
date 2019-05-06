@@ -10,7 +10,7 @@ export default class AddArticle extends Component {
         this.state = {
             title: "",
             content: "",
-            category: "",
+            category: 0,
             redirect: false
         }
     }
@@ -39,10 +39,8 @@ export default class AddArticle extends Component {
         var title = this.state.title,
             content = this.state.content,
             category = this.state.category;
-
-        console.log(category)
         
-        api.addArticle(title, content, category).then((result) => {
+        api.addArticle(title, content, parseInt(category)).then((result) => {
             this.setState({
                 redirect: true
             })
@@ -61,7 +59,18 @@ export default class AddArticle extends Component {
                 <form onSubmit={(e) => {this.submit(e)}} >
                     <input type="text" placeholder="title" onChange={(e) => {this.changeTitle(e)}} />
                     <textarea placeholder="content.." onChange={(e) => {this.changeContent(e)}} ></textarea>
-                    <input type="text" placeholder="category" onChange={(e) => {this.changeCategory(e)}} />
+                    <label>
+                        Pick your category:
+                        <select value={this.state.category} onChange={(e) => {this.changeCategory(e)}}>
+                            <option value={1}>Développement</option>
+                            <option value={2}>Marketing</option>
+                            <option value={3}>Design</option>
+                            <option value={4}>Jeux vidéo</option>
+                            <option value={5}>Sport</option>
+                            <option value={6}>Musique</option>
+                            <option value={7}>Autre</option>
+                        </select>
+                    </label>
                     <button>Publier</button>
                 </form> 
             </div>

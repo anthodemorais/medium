@@ -77,7 +77,7 @@ export default class User extends Component {
                 <div>
                     <img src={logo} alt={this.state.firstname + " " + this.state.lastname}/>
                     <h2>{this.state.firstname + " " + this.state.lastname}</h2>
-                    <span>{this.state.birthdate.substring(0, 10).split("-").reverse().join("/")}</span>
+                    <span>{this.state.birthdate.substring(0, 10)}</span>
                 </div>
                 <div>
                     <form onSubmit={(e) => {this.submit(e)}}>

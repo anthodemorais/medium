@@ -31,7 +31,9 @@ let api = {
                 results.json().then((json) => {
                     for (var i in json.data)
                     {
-                        if (json.data[i].name.toLowerCase() === category.toLowerCase())
+                        console.log(json.data[i].id == parseInt(category))
+
+                        if (json.data[i].id === parseInt(category))
                         {
                             fetch('http://blog.etherial.fr/articles', {
                                 method: 'POST',
@@ -44,7 +46,7 @@ let api = {
                                     article_category_id: json.data[i].id
                                 })
                             }).then((results) => {
-                                resolve(results);
+                                return resolve(results);
                             });
                         }
                     }
